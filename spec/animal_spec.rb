@@ -1,5 +1,6 @@
 require 'rspec'
 require './lib/animal'
+require './lib/zoo'
 
 RSpec.describe Animal do
   it 'exists' do
@@ -30,5 +31,13 @@ RSpec.describe Animal do
     animal = Animal.new("Sea Otter", 10, 25)
 
     expect(animal.age_in_days).to eq(175)
+  end
+
+  it "can be feed" do
+    animal = Animal.new("Sea Otter", 10, 25)
+    animal.feed!(2)
+    expect(animal.weight).to eq("12 pounds")
+    animal.feed!(1)
+    expect(animal.weight).to eq("13 pounds")
   end
 end
